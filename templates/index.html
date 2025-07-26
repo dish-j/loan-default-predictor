@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loan Default Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Loan Default Prediction</h1>
+      <p>Providing accurate predictions with advanced analytics.</p>
+    </header>
+    
+    <main>
+      <section class="welcome-section">
+        <h2>Your Financial Future Awaits</h2>
+        <p>Start by entering your details below.</p>
+      </section>
+      
+      <form action="/predict" method="post" class="prediction-form">
+        <div class="input-group">
+          <label for="loan_amount">Loan Amount:</label>
+          <input type="number" id="loan_amount" name="loan_amount" required />
+        </div>
+        <div class="input-group">
+          <label for="income">Income:</label>
+          <input type="number" id="income" name="income" required />
+        </div>
+        <div class="input-group">
+          <label for="Credit_Score">Credit Score:</label>
+          <input type="number" id="Credit_Score" name="Credit_Score" required />
+        </div>
+        <button type="submit" class="submit-button">Submit</button>
+      </form>
+
+      <section id="predictionResult" class="result-section">
+        {% if prediction_text %}
+          <h3>{{ prediction_text }}</h3>
+        {% endif %}
+      </section>
+    </main>
+  </div>
+</body>
+</html>
