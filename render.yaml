@@ -1,7 +1,9 @@
 services:
   - type: web
-    name: loan-default-app
+    name: loan-default-predictor
     env: python
     buildCommand: ""
     startCommand: python app.py
-    plan: free
+    envVars:
+      - key: FLASK_ENV
+        value: production
